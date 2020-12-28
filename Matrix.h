@@ -70,32 +70,6 @@ public:
 		return values[columns * pos.first + pos.second];
 	}
 
-	Matrix operator+(Matrix& other) {
-		if (columns != other.GetSize.second && rows != other.GetSize().first)
-		{
-			Matrix result(-1, -1)
-			return result;
-		}
-		Matrix result(rows, columns);
-		for (int i = 0; i < rows; i++)
-			for (int j = 0; j < columns; j++)
-				result[{i, j}] = values[columns * i + j] + other[{i, j}];
-		return result;
-	}
-
-	Matrix operator-(Matrix& other) {
-		if (columns != other.GetSize.second && rows != other.GetSize().first)
-		{
-			Matrix result(-1, -1)
-				return result;
-		}
-		Matrix result(rows, columns);
-		for (int i = 0; i < rows; i++)
-			for (int j = 0; j < columns; j++)
-				result[{i, j}] = values[columns * i + j] - other[{i, j}];
-		return result;
-	}
-
 
 	//Умножает матрицы. В случае несоответсвия размеров, возвращает матрицу с размерами (-1, -1) и пустым вектором значений)
 	Matrix operator*(Matrix& other) {
@@ -114,5 +88,11 @@ public:
 		
 		return result;
 
+	}
+
+	bool operator==(Matrix& other) {
+		for (int i = 0; i < rows; i++)
+			for (int j = 0; j < columns; j++)
+				if (values[columns * i + j] == other[{i, k}])
 	}
 };
