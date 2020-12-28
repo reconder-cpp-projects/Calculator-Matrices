@@ -93,7 +93,7 @@ public:
 	bool operator==(Matrix& other) {
 		for (int i = 0; i < rows; i++)
 			for (int j = 0; j < columns; j++)
-				if (values[columns * i + j] != other[{i, j}]) return false;
+				if (abs(values[columns * i + j] - other[{i, j}])>0.00001) return false;
 		return true;
 	}
 };
