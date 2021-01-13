@@ -8,7 +8,10 @@
 auto Plus = [](double& a, double& b) {return a + b; };
 auto Minus = [](double& a, double& b) {return a - b; };
 auto Times = [](double& a, double& b) {return a * b; };
-auto Division = [](double& a, double& b) {return a / b; };
+auto Division = [](double& a, double& b) {
+	if (b == 0) 
+	{ return 0.0; }; 
+	return a / b; };
 
 
 /*Класс-калькулятор, также занимается интерпритацией ввода*/
